@@ -106,11 +106,11 @@ public final class ScreenPainter {
 		int yTile = 1;
 		for (int y = yOffset; y < yOffset + Maze.HEIGHT; y += Maze.TILE) {
 			xTileOffset = (yTile < 10) ? xOffset - Maze.HALF_TILE - 3 : xOffset - Maze.TILE;
-			g2d.drawString(new Integer(yTile++).toString(), xTileOffset, y + 3 * Maze.QUARTER_TILE);
+			g2d.drawString(Integer.valueOf(yTile++).toString(), xTileOffset, y + 3 * Maze.QUARTER_TILE);
 			for (int x = xOffset; x < xOffset + Maze.WIDTH; x += Maze.TILE) {
 				if (xTile <= Maze.NUM_OF_COLUMNS) {
 					xTileOffset = (xTile < 10) ? x + 6 : x + 3;
-					g2d.drawString(new Integer(xTile++).toString(), xTileOffset, yOffset - Maze.HALF_TILE + 3);
+					g2d.drawString(Integer.valueOf(xTile++).toString(), xTileOffset, yOffset - Maze.HALF_TILE + 3);
 				}
 				g2d.drawRect(x, y, Maze.TILE, Maze.TILE);
 			}

@@ -26,7 +26,7 @@ public abstract class GameObject {
     }
 
     public String getPositionAsString() {
-        return ("[" + new Integer(position.x).toString() + "," + new Integer(position.y).toString() + "]");
+        return ("[" + Integer.valueOf(position.x).toString() + "," + Integer.valueOf(position.y).toString() + "]");
     }
 
     public void setPosition(Point position) {

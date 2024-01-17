@@ -141,7 +141,8 @@ public abstract class MovableGameObject extends GameObject {
 
     public String getCurrentTileAsString() {
         return (currentTile != null)
-                ? ("[" + new Integer(currentTile.x).toString() + "," + new Integer(currentTile.y).toString() + "]")
+                ? ("[" + Integer.valueOf(currentTile.x).toString() + "," + Integer.valueOf(currentTile.y).toString()
+                        + "]")
                 : null;
     }
 
@@ -159,7 +160,7 @@ public abstract class MovableGameObject extends GameObject {
 
     public String getNextTileAsString() {
         return (nextTile != null)
-                ? ("[" + new Integer(nextTile.x).toString() + "," + new Integer(nextTile.y).toString() + "]")
+                ? ("[" + Integer.valueOf(nextTile.x).toString() + "," + Integer.valueOf(nextTile.y).toString() + "]")
                 : null;
     }
 

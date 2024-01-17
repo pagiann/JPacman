@@ -152,7 +152,8 @@ public class Ghost extends MovableGameObject {
 
     public String getTargetTileAsString() {
         return (targetTile != null)
-                ? ("[" + new Integer(targetTile.x).toString() + ", " + new Integer(targetTile.y).toString() + "]")
+                ? ("[" + Integer.valueOf(targetTile.x).toString() + ", " + Integer
+                        .valueOf(targetTile.y).toString() + "]")
                 : null;
     }
 
