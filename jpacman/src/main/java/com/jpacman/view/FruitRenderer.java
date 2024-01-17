@@ -5,8 +5,7 @@ import com.jpacman.view.graphics.Screen;
 import com.jpacman.view.graphics.Sprite;
 import com.jpacman.view.graphics.SpriteSheet;
 
-public class FruitRenderer implements Renderer
-{
+public class FruitRenderer implements Renderer {
     // fruit/"bonus symbol" sprites
     public static final Sprite cherries = new Sprite(SpriteSheet.icons, 28, 4, 9);
     public static final Sprite strawberry = new Sprite(SpriteSheet.icons, 28, 5, 9);
@@ -19,17 +18,15 @@ public class FruitRenderer implements Renderer
     private final Fruit fruit;
     private final int offset;
 
-    public FruitRenderer(Fruit fruit, int offset)
-    {
-	this.fruit = fruit;
-	this.offset = offset;
+    public FruitRenderer(Fruit fruit, int offset) {
+        this.fruit = fruit;
+        this.offset = offset;
     }
 
     @Override
-    public void render(Screen screen)
-    {
-	if (fruit.getAppeared()) {
-	    screen.renderGameObject(fruit.getSprite(), fruit.getPosition().x, fruit.getPosition().y, offset, offset);
-	}
+    public void render(Screen screen) {
+        if (fruit.getAppeared()) {
+            screen.renderGameObject(fruit.getSprite(), fruit.getPosition().x, fruit.getPosition().y, offset, offset);
+        }
     }
 }

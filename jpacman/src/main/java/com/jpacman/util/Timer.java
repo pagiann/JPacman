@@ -1,7 +1,6 @@
 package com.jpacman.util;
 
-public class Timer
-{
+public class Timer {
     public static final int HALF_SECOND = 500;
     public static final int ONE_SECOND = 1000;
     public static final int ONE_AND_A_HALF_SECOND = 1500;
@@ -16,77 +15,67 @@ public class Timer
     private boolean paused;
     private int timeElapsedInMilliseconds;
 
-    public Timer()
-    {
-	started = false;
-	paused = false;
-	timeElapsedInMilliseconds = 0;
+    public Timer() {
+        started = false;
+        paused = false;
+        timeElapsedInMilliseconds = 0;
     }
 
-    public void countTimeInMilliseconds()
-    {
-	if (!started) {
-	    timer = System.currentTimeMillis();
-	    started = true;
-	}
+    public void countTimeInMilliseconds() {
+        if (!started) {
+            timer = System.currentTimeMillis();
+            started = true;
+        }
 
-	if (System.currentTimeMillis() - timer > 100) { // precision of 100 milliseconds
-	    if (!paused) {
-		timeElapsedInMilliseconds += 100;
-	    }
-	    timer += 100;
-	}
+        if (System.currentTimeMillis() - timer > 100) { // precision of 100 milliseconds
+            if (!paused) {
+                timeElapsedInMilliseconds += 100;
+            }
+            timer += 100;
+        }
     }
 
-    public void countTimeInMillisecondsPrecise()
-    {
-	if (!started) {
-	    timer = System.currentTimeMillis();
-	    started = true;
-	}
+    public void countTimeInMillisecondsPrecise() {
+        if (!started) {
+            timer = System.currentTimeMillis();
+            started = true;
+        }
 
-	if (System.currentTimeMillis() - timer > 10) { // precision of 10 milliseconds
-	    if (!paused) {
-		timeElapsedInMilliseconds += 10;
-	    }
-	    timer += 10;
-	}
+        if (System.currentTimeMillis() - timer > 10) { // precision of 10 milliseconds
+            if (!paused) {
+                timeElapsedInMilliseconds += 10;
+            }
+            timer += 10;
+        }
     }
 
-    public void reset()
-    {
-	started = false;
-	paused = false;
-	timeElapsedInMilliseconds = 0;
+    public void reset() {
+        started = false;
+        paused = false;
+        timeElapsedInMilliseconds = 0;
     }
 
-    public boolean isStarted()
-    {
-	return started;
+    public boolean isStarted() {
+        return started;
     }
 
-    public void setStarted(boolean started)
-    {
-	this.started = started;
+    public void setStarted(boolean started) {
+        this.started = started;
     }
 
-    public boolean isPaused()
-    {
-	return paused;
+    public boolean isPaused() {
+        return paused;
     }
 
-    public void setPaused(boolean paused)
-    {
-	this.paused = paused;
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 
-    public int getTimeElapsedInMilliseconds()
-    {
-	return timeElapsedInMilliseconds;
+    public int getTimeElapsedInMilliseconds() {
+        return timeElapsedInMilliseconds;
     }
 
-    public void setTimeElapsedInMilliseconds(int timeElapsedInMilliseconds)
-    {
-	this.timeElapsedInMilliseconds = timeElapsedInMilliseconds;
+    public void setTimeElapsedInMilliseconds(int timeElapsedInMilliseconds) {
+        this.timeElapsedInMilliseconds = timeElapsedInMilliseconds;
     }
 }

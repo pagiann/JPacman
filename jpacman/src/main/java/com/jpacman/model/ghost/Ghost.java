@@ -4,10 +4,9 @@ import java.awt.Point;
 
 import com.jpacman.model.MovableGameObject;
 
-public class Ghost extends MovableGameObject
-{
+public class Ghost extends MovableGameObject {
     public enum Mode {
-	SCATTER, CHASE, FRIGHTENED, EATEN;
+        SCATTER, CHASE, FRIGHTENED, EATEN;
     }
 
     // ********************* Class (static) variables ********************** //
@@ -43,259 +42,213 @@ public class Ghost extends MovableGameObject
     protected boolean revived;
 
     // cannot be overridden in subclasses
-    protected final void initializeVariables(boolean completedLevel)
-    {
-	if (completedLevel) {
-	    mode = Mode.SCATTER;
-	    previousMode = null;
-	    pillsEatenByPacman = 0;
-	}
-	currentTile = null;
-	insideInnerTunnel = false;
-	insideOuterTunnel = false;
-	nextDirection = null;
-	targetTile = null;
-	insideHouse = true;
-	mustExitTheHouse = false;
-	mustExitTheHouseFlag = false;
-	reverseDirection = false;
-	flash = false;
-	mustEnterTheHouse = false;
-	mustEnterTheHouseFlag = false;
-	revived = false;
+    protected final void initializeVariables(boolean completedLevel) {
+        if (completedLevel) {
+            mode = Mode.SCATTER;
+            previousMode = null;
+            pillsEatenByPacman = 0;
+        }
+        currentTile = null;
+        insideInnerTunnel = false;
+        insideOuterTunnel = false;
+        nextDirection = null;
+        targetTile = null;
+        insideHouse = true;
+        mustExitTheHouse = false;
+        mustExitTheHouseFlag = false;
+        reverseDirection = false;
+        flash = false;
+        mustEnterTheHouse = false;
+        mustEnterTheHouseFlag = false;
+        revived = false;
     }
 
-    public void initialize(boolean levelCompleted)
-    {
+    public void initialize(boolean levelCompleted) {
     }
 
-    public static int getNumberOfFlashes()
-    {
-	return numberOfFlashes;
+    public static int getNumberOfFlashes() {
+        return numberOfFlashes;
     }
 
-    public static void setNumberOfFlashes(int numberOfFlashes)
-    {
-	Ghost.numberOfFlashes = numberOfFlashes;
+    public static void setNumberOfFlashes(int numberOfFlashes) {
+        Ghost.numberOfFlashes = numberOfFlashes;
     }
 
-    public String getName()
-    {
-	return name;
+    public String getName() {
+        return name;
     }
 
-    public int getColor()
-    {
-	return color;
+    public int getColor() {
+        return color;
     }
 
-    public Direction getNextDirection()
-    {
-	return nextDirection;
+    public Direction getNextDirection() {
+        return nextDirection;
     }
 
-    public void setNextDirection(Direction nextDirection)
-    {
-	this.nextDirection = nextDirection;
+    public void setNextDirection(Direction nextDirection) {
+        this.nextDirection = nextDirection;
     }
 
-    public double getBeforeExitedHouseSpeedMultiplier()
-    {
-	return beforeExitedHouseSpeedMultiplier;
+    public double getBeforeExitedHouseSpeedMultiplier() {
+        return beforeExitedHouseSpeedMultiplier;
     }
 
-    public void setBeforeExitedHouseSpeedMultiplier(double beforeExitedHouseSpeedMultiplier)
-    {
-	this.beforeExitedHouseSpeedMultiplier = beforeExitedHouseSpeedMultiplier;
+    public void setBeforeExitedHouseSpeedMultiplier(double beforeExitedHouseSpeedMultiplier) {
+        this.beforeExitedHouseSpeedMultiplier = beforeExitedHouseSpeedMultiplier;
     }
 
-    public double getBeforeFrightenedMovingSpeedMultiplier()
-    {
-	return beforeFrightenedMovingSpeedMultiplier;
+    public double getBeforeFrightenedMovingSpeedMultiplier() {
+        return beforeFrightenedMovingSpeedMultiplier;
     }
 
-    public void setBeforeFrightenedMovingSpeedMultiplier(double beforeFrightenedMovingSpeedMultiplier)
-    {
-	this.beforeFrightenedMovingSpeedMultiplier = beforeFrightenedMovingSpeedMultiplier;
+    public void setBeforeFrightenedMovingSpeedMultiplier(double beforeFrightenedMovingSpeedMultiplier) {
+        this.beforeFrightenedMovingSpeedMultiplier = beforeFrightenedMovingSpeedMultiplier;
     }
 
-    public double getBeforeTunnelMovingSpeedMultiplier()
-    {
-	return beforeTunnelMovingSpeedMultiplier;
+    public double getBeforeTunnelMovingSpeedMultiplier() {
+        return beforeTunnelMovingSpeedMultiplier;
     }
 
-    public void setBeforeTunnelMovingSpeedMultiplier(double beforeTunnelMovingSpeedMultiplier)
-    {
-	this.beforeTunnelMovingSpeedMultiplier = beforeTunnelMovingSpeedMultiplier;
+    public void setBeforeTunnelMovingSpeedMultiplier(double beforeTunnelMovingSpeedMultiplier) {
+        this.beforeTunnelMovingSpeedMultiplier = beforeTunnelMovingSpeedMultiplier;
     }
 
-    public Mode getMode()
-    {
-	return mode;
+    public Mode getMode() {
+        return mode;
     }
 
-    public void setMode(Mode mode)
-    {
-	this.mode = mode;
+    public void setMode(Mode mode) {
+        this.mode = mode;
     }
 
-    public Mode getPreviousMode()
-    {
-	return previousMode;
+    public Mode getPreviousMode() {
+        return previousMode;
     }
 
-    public void setPreviousMode(Mode previousMode)
-    {
-	this.previousMode = previousMode;
+    public void setPreviousMode(Mode previousMode) {
+        this.previousMode = previousMode;
     }
 
-    public Point getScatterModeTargetTile()
-    {
-	return scatterModeTargetTile;
+    public Point getScatterModeTargetTile() {
+        return scatterModeTargetTile;
     }
 
-    public void setScatterModeTargetTile(Point scatterModeTargetTile)
-    {
-	this.scatterModeTargetTile = scatterModeTargetTile;
+    public void setScatterModeTargetTile(Point scatterModeTargetTile) {
+        this.scatterModeTargetTile = scatterModeTargetTile;
     }
 
-    public Point getChaseModeTargetTile()
-    {
-	return chaseModeTargetTile;
+    public Point getChaseModeTargetTile() {
+        return chaseModeTargetTile;
     }
 
-    public void setChaseModeTargetTile(Point chaseModeTargetTile)
-    {
-	this.chaseModeTargetTile = chaseModeTargetTile;
+    public void setChaseModeTargetTile(Point chaseModeTargetTile) {
+        this.chaseModeTargetTile = chaseModeTargetTile;
     }
 
-    public Point getTargetTile()
-    {
-	return targetTile;
+    public Point getTargetTile() {
+        return targetTile;
     }
 
-    public String getTargetTileAsString()
-    {
-	return (targetTile != null) ? ("[" + new Integer(targetTile.x).toString() + ", " + new Integer(targetTile.y).toString() + "]") : null;
+    public String getTargetTileAsString() {
+        return (targetTile != null)
+                ? ("[" + new Integer(targetTile.x).toString() + ", " + new Integer(targetTile.y).toString() + "]")
+                : null;
     }
 
-    public void setTargetTile(Point targetTile)
-    {
-	this.targetTile = targetTile;
+    public void setTargetTile(Point targetTile) {
+        this.targetTile = targetTile;
     }
 
-    public boolean isInsideHouse()
-    {
-	return insideHouse;
+    public boolean isInsideHouse() {
+        return insideHouse;
     }
 
-    public void setInsideHouse(boolean insideHouse)
-    {
-	this.insideHouse = insideHouse;
+    public void setInsideHouse(boolean insideHouse) {
+        this.insideHouse = insideHouse;
     }
 
-    public int getHouseExitPreferenceNumber()
-    {
-	return houseExitPreferenceNumber;
+    public int getHouseExitPreferenceNumber() {
+        return houseExitPreferenceNumber;
     }
 
-    public void setHouseExitPreferenceNumber(int houseExitPreferenceNumber)
-    {
-	this.houseExitPreferenceNumber = houseExitPreferenceNumber;
+    public void setHouseExitPreferenceNumber(int houseExitPreferenceNumber) {
+        this.houseExitPreferenceNumber = houseExitPreferenceNumber;
     }
 
-    public int getPillsEatenByPacman()
-    {
-	return pillsEatenByPacman;
+    public int getPillsEatenByPacman() {
+        return pillsEatenByPacman;
     }
 
-    public void setPillsEatenByPacman(int pillsEatenByPacman)
-    {
-	this.pillsEatenByPacman = pillsEatenByPacman;
+    public void setPillsEatenByPacman(int pillsEatenByPacman) {
+        this.pillsEatenByPacman = pillsEatenByPacman;
     }
 
-    public void increasePillsEatenByPacmanByOne()
-    {
-	this.pillsEatenByPacman++;
+    public void increasePillsEatenByPacmanByOne() {
+        this.pillsEatenByPacman++;
     }
 
-    public int getPillsEatenLimit()
-    {
-	return pillsEatenLimit;
+    public int getPillsEatenLimit() {
+        return pillsEatenLimit;
     }
 
-    public void setPillsEatenLimit(int pillsEatenLimit)
-    {
-	this.pillsEatenLimit = pillsEatenLimit;
+    public void setPillsEatenLimit(int pillsEatenLimit) {
+        this.pillsEatenLimit = pillsEatenLimit;
     }
 
-    public boolean getMustExitTheHouse()
-    {
-	return mustExitTheHouse;
+    public boolean getMustExitTheHouse() {
+        return mustExitTheHouse;
     }
 
-    public void setMustExitTheHouse(boolean mustExitTheHouse)
-    {
-	this.mustExitTheHouse = mustExitTheHouse;
+    public void setMustExitTheHouse(boolean mustExitTheHouse) {
+        this.mustExitTheHouse = mustExitTheHouse;
     }
 
-    public boolean getMustExitTheHouseFlag()
-    {
-	return mustExitTheHouseFlag;
+    public boolean getMustExitTheHouseFlag() {
+        return mustExitTheHouseFlag;
     }
 
-    public void setMustExitTheHouseFlag(boolean mustExitTheHouseFlag)
-    {
-	this.mustExitTheHouseFlag = mustExitTheHouseFlag;
+    public void setMustExitTheHouseFlag(boolean mustExitTheHouseFlag) {
+        this.mustExitTheHouseFlag = mustExitTheHouseFlag;
     }
 
-    public boolean getReverseDirection()
-    {
-	return reverseDirection;
+    public boolean getReverseDirection() {
+        return reverseDirection;
     }
 
-    public void setReverseDirection(boolean reverseDirection)
-    {
-	this.reverseDirection = reverseDirection;
+    public void setReverseDirection(boolean reverseDirection) {
+        this.reverseDirection = reverseDirection;
     }
 
-    public boolean getFlash()
-    {
-	return flash;
+    public boolean getFlash() {
+        return flash;
     }
 
-    public void setFlash(boolean flash)
-    {
-	this.flash = flash;
+    public void setFlash(boolean flash) {
+        this.flash = flash;
     }
 
-    public void setRevived(boolean revived)
-    {
-	this.revived = revived;
+    public void setRevived(boolean revived) {
+        this.revived = revived;
     }
 
-    public boolean getMustEnterTheHouse()
-    {
-	return mustEnterTheHouse;
+    public boolean getMustEnterTheHouse() {
+        return mustEnterTheHouse;
     }
 
-    public void setMustEnterTheHouse(boolean mustEnterTheHouse)
-    {
-	this.mustEnterTheHouse = mustEnterTheHouse;
+    public void setMustEnterTheHouse(boolean mustEnterTheHouse) {
+        this.mustEnterTheHouse = mustEnterTheHouse;
     }
 
-    public boolean getMustEnterTheHouseFlag()
-    {
-	return mustEnterTheHouseFlag;
+    public boolean getMustEnterTheHouseFlag() {
+        return mustEnterTheHouseFlag;
     }
 
-    public void setMustEnterTheHouseFlag(boolean mustEnterTheHouseFlag)
-    {
-	this.mustEnterTheHouseFlag = mustEnterTheHouseFlag;
+    public void setMustEnterTheHouseFlag(boolean mustEnterTheHouseFlag) {
+        this.mustEnterTheHouseFlag = mustEnterTheHouseFlag;
     }
 
-    public boolean isRevived()
-    {
-	return revived;
+    public boolean isRevived() {
+        return revived;
     }
 }

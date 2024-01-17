@@ -5,8 +5,7 @@ import java.awt.Rectangle;
 
 import com.jpacman.view.graphics.Sprite;
 
-public abstract class GameObject
-{
+public abstract class GameObject {
     // ********************* Class (static) variables ********************** //
     // ************************** Constants ************************** //
     public static final int NORMAL_ANIMATION_SPEED = 20;
@@ -22,73 +21,59 @@ public abstract class GameObject
     protected int animationSpeed = NORMAL_ANIMATION_SPEED; // the speed which any animated object animates
     protected int animationCounter = 0; // a counter that is used to determine the animation speed (above)
 
-    public Point getPosition()
-    {
-	return position;
+    public Point getPosition() {
+        return position;
     }
 
-    public String getPositionAsString()
-    {
-	return ("[" + new Integer(position.x).toString() + "," + new Integer(position.y).toString() + "]");
+    public String getPositionAsString() {
+        return ("[" + new Integer(position.x).toString() + "," + new Integer(position.y).toString() + "]");
     }
 
-    public void setPosition(Point position)
-    {
-	this.position = new Point(position);
+    public void setPosition(Point position) {
+        this.position = new Point(position);
     }
 
-    public Sprite getSprite()
-    {
-	return sprite;
+    public Sprite getSprite() {
+        return sprite;
     }
 
-    public void setSprite(Sprite sprite)
-    {
-	this.sprite = sprite;
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
     }
 
-    public Rectangle getBounds()
-    {
-	return bounds;
+    public Rectangle getBounds() {
+        return bounds;
     }
 
-    public void setBounds(Rectangle bounds)
-    {
-	this.bounds = bounds;
+    public void setBounds(Rectangle bounds) {
+        this.bounds = bounds;
     }
 
-    public boolean getAnimate()
-    {
-	return animate;
+    public boolean getAnimate() {
+        return animate;
     }
 
-    public void setAnimate(boolean animate)
-    {
-	this.animate = animate;
+    public void setAnimate(boolean animate) {
+        this.animate = animate;
     }
 
-    public int getAnimationSpeed()
-    {
-	return animationSpeed;
+    public int getAnimationSpeed() {
+        return animationSpeed;
     }
 
-    public void setAnimationSpeed(int animationSpeed)
-    {
-	this.animationSpeed = animationSpeed;
+    public void setAnimationSpeed(int animationSpeed) {
+        this.animationSpeed = animationSpeed;
     }
 
-    public int getAnimationCounter()
-    {
-	return animationCounter;
+    public int getAnimationCounter() {
+        return animationCounter;
     }
 
-    public void setAnimationCounter(int animationCounter)
-    {
-	this.animationCounter = animationCounter;
+    public void setAnimationCounter(int animationCounter) {
+        this.animationCounter = animationCounter;
     }
 
-    public void increaseAnimationCounterByOne()
-    {
-	animationCounter++;
+    public void increaseAnimationCounterByOne() {
+        animationCounter++;
     }
 }
