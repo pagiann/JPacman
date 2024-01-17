@@ -1,0 +1,22 @@
+TO DO list:
+
+
+PLAY MODE:
+	- Fix sound.
+ 	- Replace pathfinding logic with A* and delete Pathfinder class.
+ 	- Change pacman (player) control to NOT store entered directions and only check for 
+	  new directions when inside an intersection + implement cornering (per pac-man dossier).
+	- Add "Areas To Exploit" (per pac-man dossier).
+	- Add cutscenes... (add the intermission sound effect as well).
+	
+EDUCATIONAL MODE:
+	- Change the About text to be more representative of what has been implemented.
+	- IDS: find a way to not draw nodes which are painted under others
+	  but keep the color shading computation for them.
+	- Implement pacman distance traveled for diagonal paths.
+
+GENERAL:
+	- Rename routeTiles to something better (roadTiles, walkableTiles, etc).
+	- Move all image manipulation functions to a utility class.
+	- Improve organization of code, OPTIMIZATION!.
+  - Optimize code.

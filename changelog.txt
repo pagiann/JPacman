@@ -1,0 +1,188 @@
+=== version 1.01 - 2016-01-20 ===
+
+- Added another submode in Pathfinding Visualization mode. In this submode the user is presented with an empty space, where
+  he/she can set obstacles anywhere he/she wants and finally see the algorithm pathfinding visualization.
+- Added octile heuristic function, and also added the other two heuristics (chebyshev, octile) to all heuristic algorithms.
+- Fixed yet another bug in TSP, where AStarAlgorithmForTSP was using the Manhattan distance instead of the correct Euclidean
+  one, which resulted not finding the optimal path in some cases (e.g. only one pill).
+- Fixed a serious bug in A* algorithm, where if there was an equal node in the open list with a worst g value from the current
+  neighbor node, it wasn't being updated with the correct (best values), resulting A* not finding the shortest path.
+- Fixed and properly implemented IDS algorithm. Also remove mode parameter due to that and replaced with a "visualize iterations"
+  button which toggles algorithms iterations visualization.
+- Fixed IDS diagonal search to find best optimal path (in tiles in the way BFS does).
+- Some minor visual improvements.
+- Some minor bugs fixed.
+
+=== version 1.0 - 2016-01-12 ===
+
+- Added dynamic painting of nodes in graphical search tree in  
+- Added paint of the unexpanded nodes (those currently in the search frontier) in the AI Algorithms Stepwise Learning mode.
+- Added algorithm parameters for IDS and BS in AI Algorithms Stepwise Learning mode (you can change them) and 
+  AI Algorithms Interactive Learning mode (you can't change them).
+- Added dynamic coloring of the search tree nodes in synchronization with the maze ones.
+- Replaced all sprites (except mazes) with new (Rando's ones).
+- Replaced button "Toggle Expanded Nodes" with a button to set their color between two values: a default one, with shading from
+  white to dark gray one and a maze based one, with shading from white to a light shade of maze's color.
+- Changed "Step Size" with "Iterations" in AI Algorithms Stepwise Learning mode. For any number x > 1 the selected algorithm will
+  perform x iterations (without displaying each individual step) before changing back to step-by-step execution. This also fixes
+  the stepwise execution of the IDS algorithm.
+- Changed Beam Search algorithm behavior, to keep the best nodes (beam) in memory based on the F=G+H cost and not the H cost. 
+- Improved AI Algorithms Stepwise Execution mode. Added expanded nodes coloring. Also, to make auto mode more efficient, the action
+  execution time changed to be quite fast (500ms/action) in order to complete more actions in less time and as a result the user
+  can have a basic understanding of the algorithm (without executing the algorithm in manual mode).
+- Improved UI of TSP.
+- Fixed a bug where node maze tile location wasn't showing above everything else as it should.
+- Fixed a bug when BS algorithm couldn't found a solution, the tile/node where user clicked wasn't being drawn as the goal node
+  but the goal node of the path found was being drawn instead.
+- Fixed a bug where IDS algorithm's parameters were being reset at the start of each new algorithm run.
+- Fixed a bug where in the search tree of IDS algorithm, duplicate nodes of the solution path were painted.
+- Fixed a bug where the heuristic function checkbox of the graphical search could be selected for any of the blind algorithms.
+- Fixed and optimized TSP, and now the optimal/smallest path is always found. Removed closed list due to the fact that nodes in
+  the closed list may be rediscovered and their cost improved. Only nodes in the open list are checked and if there is an equal
+  node in the open list with larger fCost value it's removed and the current neighbor/child node is added in the open list.
+- Fixed a bug in TSP where the user couldn't set a pill in pacman's initial start position.
+- Some minor bugs fixed.
+
+
+=== version 0.99 - 2015-12-29 ===
+
+=> In [educational mode]:
+- Added full implementation of the Iterative Deepening Algorithm.
+- Added full implementation of the Beam Search Algorithm.
+- Added full implementations of the rest of the algorithms.
+- Added automatic scrolling to "current" node, in graphical search tree.
+- Added a visual indicator for hovered maze tile.
+- Added a cancel button in Pathfinding mode.
+- Added a difficulty (easy: showing nodes IDs | medium: not showing nodes IDs but using color shading | 
+  hard: not showing nodes IDs and not using color shading) feature in AI Interactive Execution mode.
+- Added a randomize button in TSP mode.
+- Improved expanded node and solution path visuals in Pathfinding mode.
+- Improved expanded nodes visuals in graphical search tree.
+- Fixed an important bug in ALL algorithms where the neighbor/child node wasn't being checked correctly (if there is an equal
+  node) with the open and closed lists.
+- Fixed pacman with start position at a cross road with 4 possible directions, not having 4 edges in graphical search tree.
+- Some minor visual improvements (UI text refactoring, repositioning).
+- Code refactoring/clean up.
+
+=== version 0.97 - 2015-12-12 ===
+
+=> In [play mode]:
+- Added darkening of screen when game pauses.
+- Added a LevelRenderer class in correspondence to MVC architecture.
+- Set the UPDATES_PER_SECOND to 60.0 (find a way that worked).
+=> In [educational mode]:
+- Added a check box to make the search tree "always on top".
+- Added a check box to show the node's maze (tile) location.
+- Added a check box to show the node's heuristic function for the heuristic search algorithms.
+- Added speed values for the expansion of nodes and pacman speeds (in all 3 modes).
+- Implemented pacman movement animation (with sprite rotations etc.) in TSP - Classic mode.
+- Improved stepwise AI ALgorithms Learning mode's usability/presentation.
+- Improved intro/welcome animation.
+- Improved graphical search tree presentation by painting node's edges under everything else.
+- Some minor visual improvements (node's id string alignment).
+- Code clean up.
+
+
+=== version 0.95 - 2015-10-23 ===
+
+- Added a simple intro/welcome animation.
+- Changed the name of the Debugger class to ScreenPainter and moved it to the /view/graphics package.
+=> In [play mode]:
+- Added high scores feature. Store (best 10) high scores in a file (serialize a list object) and reload them in a new game.
+=> In [educational mode]:
+- Added speed controls for pacman and "node expansion animation" [in Pathfinding mode].
+- Added highlighting of pacman's current path in graphical search tree.
+- Added search tree visualization [in "AI Algorithms Learning" mode].
+- Added the rest of the mazes [in "AI Algorithms Learning" mode].
+- Added variable step (minimum, decrease, increase, maximum) [in "AI Algorithms Learning" mode].
+- Improved expanded nodes (states) representation (animation) [in Pathfinding mode].
+- Improved and fixed some bugs in graphical representation of AI algorithm's search tree (GraphicalSearchTree.java).
+- Removed user interaction in Pathfinding mode (temporarely, will be readded later in "AI algorithms learning" mode).
+- Some minor bug fixes.
+- Code clean up.
+
+
+=== version 0.92 - 2015-07-11 ===
+
+=> In [educational mode]:
+- Added graphical representation of AI algorithm's search tree (opens in new window).
+- Added user interaction (in cross-roads ask user choice) in order to help the user better understand how each algorithms works.
+- Added toggle grid "button" in Pathfinding mode, which toggles a grid above the maze for easy recognition of the nodes.
+- Added toggle expanded nodes in Pathfinding mode.
+- Added 2 more (mixed) mazes.
+- Removed computeShortestPathTree method from GraphAlgorithms.java because it wasn't used.
+- Some minor improvements.
+
+
+=== version 0.91 - 2015-05-28 ===
+
+=> In [educational mode]:
+- Added more(5) search algorithms.
+- Added "AI algorithms learning" mode.
+- Added visual (colored) representation of expanded nodes.
+- Added new mazes with dead ends.
+- Improved Pathfinding mode.
+- Improved/Fixed UI.
+- Improved TSP mode UI and functionality (added randomized pills).
+- Fixed a bug in TSP, where wrong pruning was leading to not always finding the optimal solution (=shortest path).
+- Fixed a bug in TSP, where algorithm was being trapped in an infinite loop in computeMinimumSpanningTree method,
+  due to duplicate vertices (randomly generated ones).
+- Fixed some typos in changelog.
+- Some minor improvements.
+- Some minor bug fixes.
+
+
+=== version 0.88 - 2015-05-07 ===
+
+- Added a reset menu in TSP [educational mode].
+- Added a back (to main menu) option and fixed the bug with quitting while algorithm is running [educational mode].
+- Added toggle pill feature in TSP [educational mode].
+- Added a SearchAlgorithm abstract super class in model/edumode [educational mode].
+- Fixed and improved both variations of TSP [educational mode].
+- Deleted MazeCreator class.
+- Code clean up [educational mode].
+- Some minor bug fixes [general].
+
+
+=== version 0.86 - 2015-04-02 ===
+
+- Added two custom A* search algorithms (with custom heuristics) in two separate modes,
+  for the TSP, in which pacman eats all pills, using the shortest path possible [educational mode].
+- Added heuristic selection in Pathfinding mode [educational mode].
+- Improved educational mode general performance [educational mode].
+- Removed "A* - Nearest Neighbor" algorithm for the TSP, in educational mode (may be re-added later) [educational mode].
+- Fixed (and improved) pacman animation [general].
+- Fixed a bug in A* Pathfinding algorithm, related to the computation of hCost [educational mode].
+- Code clean up [general].
+- Some minor improvements [general].
+
+
+=== version 0.84 - 2015-03-17 ===
+
+- Added a medium font size and removed "bonus points sprites" from spritesheet.png [general].
+- Added an "A* - Nearest Neighbor" TSP algorithm [educational mode].
+- Added maze selection (through maze thumbs) [educational mode].
+- Some minor improvements [general].
+
+
+=== version 0.83 - 2015-03-14 ===
+
+- Added (proper) keyboard navigation for menu [general].
+- Improved organization of code [general].
+- Some minor improvements [general].
+
+
+=== version 0.82 - 2015-03-12 ===
+
+- Added Pathfinding mode, using A* search algorithm [educational mode].
+- Removed keyboard navigation for menu temporarily due to bugs [general].
+- Some minor fixes [general].
+
+
+=== version 0.81 - 2015-03-11 ===
+
+- Added a Font class and changed the fixed label/text sprites to font sprites [general].
+- Added keyboard navigation for menu [general].
+- Improved and more flexible text rendering with font sprites [general].
+- Redesigned menu system [general].
+
